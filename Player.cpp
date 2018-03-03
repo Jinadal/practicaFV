@@ -13,7 +13,7 @@ int Player::Movimiento(){
     return direccion;
 }
 void Player::render(){
-    shape->setFillColor(sf::Color(100, 250, 50));
+    shape->setFillColor(sf::Color::Blue);
     shape->setPosition(x,y);
 }
 void Player::update(){

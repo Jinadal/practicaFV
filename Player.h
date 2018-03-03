@@ -16,7 +16,7 @@ public:
     }
 private:
     sf::RectangleShape *shape;
-    int direccion=0;
+    int direccion=4;
     int x=400,y=300;
 };
 

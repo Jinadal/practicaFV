@@ -9,7 +9,7 @@ void Juego::inicializar()
 {
     ventana.setFramerateLimit(60);
     jugador=new Player();
-    if (!texture.loadFromFile("background.jpg",sf::IntRect(0,0,600,480)))
+    if (!texture.loadFromFile("background.jpg",sf::IntRect(0,0,480,480)))
     {
     }
     sprite.setTexture(texture);
@@ -49,6 +49,25 @@ void Juego::cleared(){
 void Juego::update(){
     jugador->update();
 }
+void Juego::colisiones(){
+    int xnext=jugador->getShape().getPosition().x,ynext=jugador->getShape().getPosition().y;
+    if(jugador->Movimiento()==1){
+        ynext=ynext-7;
+    }
+    if(jugador->Movimiento()==2){
+        xnext=xnext-7;
+    }
+    if(jugador->Movimiento()==3){
+        ynext=ynext+7;
+    }
+    if(jugador->Movimiento()==4){
+        xnext=xnext+7;
+    }
+    Image=ventana.capture();
+    if(Image.getPixel(xnext,ynext)==sf::Color::Blue){
+        inGame=false;
+    }
+}
 void Juego::run(){
     inicializar();
     sf::Time timeStartUpdate=clock1.getElapsedTime();
@@ -56,6 +75,7 @@ void Juego::run(){
         eventos();
         if(clock1.getElapsedTime().asMilliseconds()- timeStartUpdate.asMilliseconds()>kUpdateTimePS)
         {
+            colisiones();
             update();
             timeStartUpdate=clock1.getElapsedTime();
         }

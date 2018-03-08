@@ -1,12 +1,11 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef IA_H
+#define IA_H
 #include <SFML/Graphics.hpp>
-
-class Player {
+class IA {
 public:
-    Player();
-    Player(const Player& orig);
-    virtual ~Player();
+    IA();
+    IA(const IA& orig);
+    virtual ~IA();
     int Movimiento();
     void update();
     void render();
@@ -16,9 +15,8 @@ public:
     }
 private:
     sf::RectangleShape *shape;
-    int direccion=4;
-    int x=100,y=350;
+    int direccion=2;
+    int x=600,y=350;
 };
 
 #endif
-

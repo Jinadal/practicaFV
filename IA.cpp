@@ -1,22 +1,23 @@
-#include "Player.h"
 #include <iostream>
-Player::Player() {
+#include "IA.h"
+
+IA::IA() {
     shape=new sf::RectangleShape(sf::Vector2f(10, 10));
 }
 
-Player::Player(const Player& orig) {
+IA::IA(const IA& orig) {
 }
 
-Player::~Player() {
+IA::~IA() {
 }
-int Player::Movimiento(){
+int IA::Movimiento(){
     return direccion;
 }
-void Player::render(){
-    shape->setFillColor(sf::Color::Cyan);
+void IA::render(){
+    shape->setFillColor(sf::Color::Yellow);
     shape->setPosition(x,y);
 }
-void Player::update(){
+void IA::update(){
     switch(direccion){
             case 1:
                 y=y-10;
@@ -34,8 +35,9 @@ void Player::update(){
                 break;
     }
 }
-void Player::setDireccion(int dir){
+void IA::setDireccion(int dir){
     direccion=dir;
 }
+
 
 

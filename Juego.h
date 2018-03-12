@@ -1,13 +1,14 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Player.h"
-#include "IA.h"
 #include <SFML/System.hpp>
 
 
 
 class Juego{
-  
+private:
+    const int W=600,D=480;
+    
 private:
     sf::RenderWindow ventana;
     sf::Event miEvento;
@@ -18,8 +19,7 @@ private:
     bool inGame{true};
     bool virgen{true};
     bool colisionado{false};
-    Player* jugador1;
-    IA* jugador2;
+    Player* jugador;
     void inicializar();
     void eventos();
     void update();

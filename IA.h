@@ -8,6 +8,7 @@ public:
     virtual ~IA();
     int Movimiento();
     void update();
+    void control(int dir,bool der,bool izq);
     void render();
     void setDireccion(int dir);
     sf::RectangleShape getShape(){
